@@ -47,7 +47,7 @@
 }
 </style>
 <h1>api documentation for
-    <a href="https://github.com/sindresorhus/query-string#readme">query-string (v4.3.2)</a>
+    <a href="https://github.com/sindresorhus/query-string#readme">query-string (v4.3.3)</a>
 </h1>
 <h4>Parse and stringify URL query strings</h4>
 <div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
@@ -75,6 +75,45 @@
         <li>
 
             <a class="apidocElementLiA" href="#apidoc.element.query-string.stringify">
+            function <span class="apidocSignatureSpan">query-string.</span>stringify
+            <span class="apidocSignatureSpan">(obj, opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.query-string.extract">module query-string.extract</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.query-string.extract.extract">
+            function <span class="apidocSignatureSpan">query-string.</span>extract
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.query-string.parse">module query-string.parse</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.query-string.parse.parse">
+            function <span class="apidocSignatureSpan">query-string.</span>parse
+            <span class="apidocSignatureSpan">(str, opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.query-string.stringify">module query-string.stringify</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.query-string.stringify.stringify">
             function <span class="apidocSignatureSpan">query-string.</span>stringify
             <span class="apidocSignatureSpan">(obj, opts)</span>
             </a>
@@ -196,6 +235,195 @@ const parsedHash = queryString.parse(location.hash);
 
     <h2>
         <a href="#apidoc.element.query-string.stringify" id="apidoc.element.query-string.stringify">
+        function <span class="apidocSignatureSpan">query-string.</span>stringify
+        <span class="apidocSignatureSpan">(obj, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stringify = function (obj, opts) {
+	var defaults = {
+		encode: true,
+		strict: true,
+		arrayFormat: 'none'
+	};
+
+	opts = objectAssign(defaults, opts);
+
+	var formatter = encoderForArrayFormat(opts);
+
+	return obj ? Object.keys(obj).sort().map(function (key) {
+		var val = obj[key];
+
+		if (val === undefined) {
+			return '';
+		}
+
+		if (val === null) {
+			return encode(key, opts);
+		}
+
+		if (Array.isArray(val)) {
+			var result = [];
+
+			val.slice().forEach(function (val2) {
+				if (val2 === undefined) {
+					return;
+				}
+
+				result.push(formatter(key, val2, result.length));
+			});
+
+			return result.join('&amp;');
+		}
+
+		return encode(key, opts) + '=' + encode(val, opts);
+	}).filter(function (x) {
+		return x.length &gt; 0;
+	}).join('&amp;') : '';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+const parsedHash = queryString.parse(location.hash);
+console.log(parsedHash);
+//=&gt; {token: 'bada55cafe'}
+
+parsed.foo = 'unicorn';
+parsed.ilike = 'pizza';
+
+const stringified = queryString.<span class="apidocCodeKeywordSpan">stringify</span>(parsed);
+//=&gt; 'foo=unicorn&amp;ilike=pizza'
+
+location.search = stringified;
+// note that `location.search` automatically prepends a question mark
+console.log(location.search);
+//=&gt; '?foo=unicorn&amp;ilike=pizza'
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.query-string.extract" id="apidoc.module.query-string.extract">module query-string.extract</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.query-string.extract.extract" id="apidoc.element.query-string.extract.extract">
+        function <span class="apidocSignatureSpan">query-string.</span>extract
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">extract = function (str) {
+	return str.split('?')[1] || '';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- `none`: is the __default__ option and removes any bracket representation, such as:
+
+```js
+queryString.stringify({foo: [1,2,3]});
+// =&gt; foo=1&amp;foo=2&amp;foo=3
+```
+
+### .<span class="apidocCodeKeywordSpan">extract</span>(*string*)
+
+Extract a query string from a URL that can be passed into `.parse()`.
+
+
+## Nesting
+
+This module intentionally doesn't support nesting as it's not spec'd and varies between implementations, which causes
+ a lot of [edge cases](https://github.com/visionmedia/node-querystring/issues).
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.query-string.parse" id="apidoc.module.query-string.parse">module query-string.parse</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.query-string.parse.parse" id="apidoc.element.query-string.parse.parse">
+        function <span class="apidocSignatureSpan">query-string.</span>parse
+        <span class="apidocSignatureSpan">(str, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parse = function (str, opts) {
+	opts = objectAssign({arrayFormat: 'none'}, opts);
+
+	var formatter = parserForArrayFormat(opts);
+
+	// Create an object with no prototype
+	// https://github.com/sindresorhus/query-string/issues/47
+	var ret = Object.create(null);
+
+	if (typeof str !== 'string') {
+		return ret;
+	}
+
+	str = str.trim().replace(/^(\?|#|&amp;)/, '');
+
+	if (!str) {
+		return ret;
+	}
+
+	str.split('&amp;').forEach(function (param) {
+		var parts = param.replace(/\+/g, ' ').split('=');
+		// Firefox (pre 40) decodes `%3D` to `=`
+		// https://github.com/sindresorhus/query-string/pull/37
+		var key = parts.shift();
+		var val = parts.length &gt; 0 ? parts.join('=') : undefined;
+
+		// missing `=` should be `null`:
+		// http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
+		val = val === undefined ? null : decodeURIComponent(val);
+
+		formatter(decodeURIComponent(key), val, ret);
+	});
+
+	return Object.keys(ret).sort().reduce(function (result, key) {
+		var val = ret[key];
+		if (Boolean(val) &amp;&amp; typeof val === 'object' &amp;&amp; !Array.isArray(val)) {
+			// Sort object keys, not values
+			result[key] = keysSorter(val);
+		} else {
+			result[key] = val;
+		}
+
+		return result;
+	}, Object.create(null));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```js
+const queryString = require('query-string');
+
+console.log(location.search);
+//=&gt; '?foo=bar'
+
+const parsed = queryString.<span class="apidocCodeKeywordSpan">parse</span>(location.search);
+console.log(parsed);
+//=&gt; {foo: 'bar'}
+
+console.log(location.hash);
+//=&gt; '#token=bada55cafe'
+
+const parsedHash = queryString.parse(location.hash);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.query-string.stringify" id="apidoc.module.query-string.stringify">module query-string.stringify</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.query-string.stringify.stringify" id="apidoc.element.query-string.stringify.stringify">
         function <span class="apidocSignatureSpan">query-string.</span>stringify
         <span class="apidocSignatureSpan">(obj, opts)</span>
         </a>
