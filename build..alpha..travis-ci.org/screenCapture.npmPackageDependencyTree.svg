@@ -4,7 +4,7 @@
 <tspan x="10" y="26">1 megabytes installed</tspan>
 <tspan x="10" y="42"></tspan>
 <tspan x="10" y="58">node_modules</tspan>
-<tspan x="10" y="74">└─┬ query-string@4.3.3 </tspan>
+<tspan x="10" y="74">└─┬ query-string@4.3.4 </tspan>
 <tspan x="10" y="90">  ├── object-assign@4.1.1 </tspan>
 <tspan x="10" y="106">  └── strict-uri-encode@1.1.0</tspan>
 </text>

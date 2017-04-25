@@ -51,7 +51,7 @@
 
         href="https://github.com/sindresorhus/query-string#readme"
 
-    >query-string (v4.3.3)</a>
+    >query-string (v4.3.4)</a>
 </h1>
 <h4>Parse and stringify URL query strings</h4>
 <div class="apidocSectionDiv"><a
@@ -88,40 +88,38 @@
 
         </li>
 
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">query-string.</span>index</span>
+
+        </li>
+
     </ol></li>
 
-    <li class="apidocModuleLi"><a href="#apidoc.module.query-string.extract">module query-string.extract</a><ol>
+    <li class="apidocModuleLi"><a href="#apidoc.module.query-string.index">module query-string.index</a><ol>
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.query-string.extract.extract">
-            function <span class="apidocSignatureSpan">query-string.</span>extract
+            <a class="apidocElementLiA" href="#apidoc.element.query-string.index.extract">
+            function <span class="apidocSignatureSpan">query-string.index.</span>extract
             <span class="apidocSignatureSpan">(str)</span>
             </a>
 
         </li>
 
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.query-string.parse">module query-string.parse</a><ol>
-
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.query-string.parse.parse">
-            function <span class="apidocSignatureSpan">query-string.</span>parse
+            <a class="apidocElementLiA" href="#apidoc.element.query-string.index.parse">
+            function <span class="apidocSignatureSpan">query-string.index.</span>parse
             <span class="apidocSignatureSpan">(str, opts)</span>
             </a>
 
         </li>
 
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.query-string.stringify">module query-string.stringify</a><ol>
-
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.query-string.stringify.stringify">
-            function <span class="apidocSignatureSpan">query-string.</span>stringify
+            <a class="apidocElementLiA" href="#apidoc.element.query-string.index.stringify">
+            function <span class="apidocSignatureSpan">query-string.index.</span>stringify
             <span class="apidocSignatureSpan">(obj, opts)</span>
             </a>
 
@@ -308,15 +306,17 @@ console.log(location.search);
     </ul>
 
 
+
+
 </div>
 
 <div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.query-string.extract" id="apidoc.module.query-string.extract">module query-string.extract</a></h1>
+<h1><a href="#apidoc.module.query-string.index" id="apidoc.module.query-string.index">module query-string.index</a></h1>
 
 
     <h2>
-        <a href="#apidoc.element.query-string.extract.extract" id="apidoc.element.query-string.extract.extract">
-        function <span class="apidocSignatureSpan">query-string.</span>extract
+        <a href="#apidoc.element.query-string.index.extract" id="apidoc.element.query-string.index.extract">
+        function <span class="apidocSignatureSpan">query-string.index.</span>extract
         <span class="apidocSignatureSpan">(str)</span>
         </a>
     </h2>
@@ -345,15 +345,10 @@ This module intentionally doesn&#x27;t support nesting as it&#x27;s not spec&#x2
     </ul>
 
 
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.query-string.parse" id="apidoc.module.query-string.parse">module query-string.parse</a></h1>
-
 
     <h2>
-        <a href="#apidoc.element.query-string.parse.parse" id="apidoc.element.query-string.parse.parse">
-        function <span class="apidocSignatureSpan">query-string.</span>parse
+        <a href="#apidoc.element.query-string.index.parse" id="apidoc.element.query-string.index.parse">
+        function <span class="apidocSignatureSpan">query-string.index.</span>parse
         <span class="apidocSignatureSpan">(str, opts)</span>
         </a>
     </h2>
@@ -423,15 +418,10 @@ const parsedHash = queryString.parse(location.hash);
     </ul>
 
 
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.query-string.stringify" id="apidoc.module.query-string.stringify">module query-string.stringify</a></h1>
-
 
     <h2>
-        <a href="#apidoc.element.query-string.stringify.stringify" id="apidoc.element.query-string.stringify.stringify">
-        function <span class="apidocSignatureSpan">query-string.</span>stringify
+        <a href="#apidoc.element.query-string.index.stringify" id="apidoc.element.query-string.index.stringify">
+        function <span class="apidocSignatureSpan">query-string.index.</span>stringify
         <span class="apidocSignatureSpan">(obj, opts)</span>
         </a>
     </h2>
