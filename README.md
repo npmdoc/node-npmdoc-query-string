@@ -1,6 +1,6 @@
 # npmdoc-query-string
 
-#### api documentation for  [query-string (v4.3.3)](https://github.com/sindresorhus/query-string#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-query-string.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-query-string) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-query-string.svg)](https://travis-ci.org/npmdoc/node-npmdoc-query-string)
+#### basic api documentation for  [query-string (v4.3.4)](https://github.com/sindresorhus/query-string#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-query-string.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-query-string) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-query-string.svg)](https://travis-ci.org/npmdoc/node-npmdoc-query-string)
 
 #### Parse and stringify URL query strings
 
@@ -39,8 +39,8 @@
     },
     "directories": {},
     "dist": {
-        "shasum": "91c90ff7173d9acd9e088b3cc223f9b437865692",
-        "tarball": "https://registry.npmjs.org/query-string/-/query-string-4.3.3.tgz"
+        "shasum": "bbb693b9ca915c232515b228b1a02b609043dbeb",
+        "tarball": "https://registry.npmjs.org/query-string/-/query-string-4.3.4.tgz"
     },
     "engines": {
         "node": ">=0.10.0"
@@ -48,7 +48,7 @@
     "files": [
         "index.js"
     ],
-    "gitHead": "9a0ba4b0715fa1af97e72792405988aa57ad0fa1",
+    "gitHead": "27e4fae3e79d179bcf79c32cf3bb404770ac0491",
     "homepage": "https://github.com/sindresorhus/query-string#readme",
     "keywords": [
         "browser",
@@ -80,7 +80,8 @@
     "scripts": {
         "test": "xo && ava"
     },
-    "version": "4.3.3"
+    "version": "4.3.4",
+    "bin": {}
 }
 ```
 
